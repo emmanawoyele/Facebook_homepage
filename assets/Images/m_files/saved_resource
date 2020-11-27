@@ -1,0 +1,20 @@
+
+var ftGUID_2773988="3995886D390F79";
+var ftConfID_2773988="7251000";
+var ftParams_2773988="ftx=&fty=&ftadz=&ftscw=&ft_custom=&ftOBA=1&ft_agentEnv=0&ft_referrer=https%3A%2F%2Fwww.w3schools.com%2Fcss%2Fcss3_buttons.asp&cachebuster=451700.75957465626";
+var ftKeyword_2773988="";
+var ftCustom_2773988="";
+var ftSection_2773988="";
+var ftSegment_2773988="v7q,w2c,um2";
+var ftSegmentList_2773988=[{s:'v7q'},{s:'w2c'},{s:'um2'}];
+var ftRuleMatch_2773988="0";
+var ftTimestamp_2773988="1562684146";
+var ftImp2773988 = {};
+ftImp2773988.privacy = "x";
+ftImp2773988.guidAge = "212";
+ftImp2773988.impID = "CFAE5D42-0F20-B05E-A54A-2A89BE6F103E";
+ftImp2773988.duid = "FT:3995886D390F79";
+ftImp2773988.ft_tpplid = "";
+ftImp2773988.ft_c = {};
+
+document.write('<scr'+'ipt src="https://cdn.flashtalking.com/xre/277/2773988/2014083/js/j-2773988-2014083.js" id="ftscript_m2773988" name="ftscript_m2773988"></scr'+'ipt>');

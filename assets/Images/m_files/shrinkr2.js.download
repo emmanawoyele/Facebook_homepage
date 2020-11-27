@@ -1,0 +1,113 @@
+function shrinkr(e){
+
+    /////////////////////////////////////
+    //SETUP VARIABLES
+    /////////////////////////////////////
+
+    var ofs = parseInt(window.getComputedStyle(e, null).getPropertyValue('font-size'));
+    var efs = ofs;
+    var lh = window.getComputedStyle(e, null).getPropertyValue('line-height');
+
+    // Corrects measurements to include padding
+    
+    var vPad=0;
+    var hPad=0;
+
+    if((window.getComputedStyle(e, null).getPropertyValue('box-sizing')) == "content-box"){
+    vPad = parseInt(window.getComputedStyle(e, null).getPropertyValue('padding-top')) + parseInt(window.getComputedStyle(e, null).getPropertyValue('padding-bottom'));
+    hPad = parseInt(window.getComputedStyle(e, null).getPropertyValue('padding-left')) + parseInt(window.getComputedStyle(e, null).getPropertyValue('padding-right'));
+    }
+
+    var maxWidth = e.clientWidth - hPad;
+    var maxHeight = parseInt(window.getComputedStyle(e, null).getPropertyValue('max-height'));
+
+    if(isNaN(maxHeight)){
+        maxHeight = e.clientHeight;
+    }
+
+    maxHeight -= vPad;
+
+    //Sets minimum font size
+    var minfs = 4;
+
+    /////////////////////////////////////
+    //LONGEST WORD CHECK
+    /////////////////////////////////////
+
+    //Create a new div and append it to the element
+    var longestWord = document.createElement('div');
+
+    longestWord.style.position="absolute";
+    longestWord.style.whiteSpace="no-wrap";
+    longestWord.style.fontFamily = "inherit";
+    
+    e.appendChild(longestWord);   
+
+    //Get font size for main element and our newly created child element (IE9+)
+    
+    var lfs = parseInt(window.getComputedStyle(longestWord, null).getPropertyValue('font-size'));
+
+    //Split text content from main element into array (IE9+)
+    var p = e.textContent.split(" ");
+
+    //find widest word by pixel width
+    var lw = 0,
+        lwp = "";
+
+    for (var i = 0; i < p.length; i++){
+      longestWord.innerHTML = p[i];
+      var nw = longestWord.clientWidth;
+
+      if(nw > lw){
+        lw = nw;
+        lwp = p[i];
+      }
+    }
+
+    //Assigns only the longest word to child element
+    longestWord.innerHTML = lwp;
+
+    //While the longest word is wider than the parent div make the font smaller
+    while (longestWord.clientWidth > maxWidth && efs > minfs){
+      if (efs === 0) {break;}
+      efs--;
+      longestWord.style.fontSize = efs +"px";
+    }
+
+    //Clean up resizing div
+    e.removeChild(longestWord);
+    //Set parent font size to fit longest word
+    e.style.fontSize = efs+"px";
+    
+
+    /////////////////////////////////////
+    //RESIZE CHECK
+    /////////////////////////////////////
+
+    //--- Now regular resize function
+    var b = document.createElement("div");
+    b.innerHTML = e.innerHTML;
+    e.appendChild(b);   
+
+    b.style.position="absolute";
+    b.style.margin="0px";
+    b.style.padding="0px";
+    b.style.visibility="hidden";
+    b.style.fontFamily = "inherit";
+    b.style.fontSize = efs +"px";
+
+    b.style.width = maxWidth+"px"; 
+
+    //If text element is using custom line-height, this will preserve it as a ratio. 
+
+    if (!isNaN(parseInt(lh))){b.style.lineHeight = (parseInt(lh) / ofs)+"em";}              
+
+    while(b.clientHeight > maxHeight){
+    if (efs === 0) {break;}
+      efs--;
+      b.style.fontSize = efs +"px";
+    }
+
+    //e.removeChild(b);
+    e.style.fontSize = efs +"px";
+}

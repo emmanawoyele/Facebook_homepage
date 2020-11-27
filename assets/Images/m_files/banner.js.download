@@ -1,0 +1,526 @@
+var stageWidth = 728;
+var stageHeight = 90;
+var playCount = 0;
+var playLimit = 2;
+var dom = {};
+var devDynamicContent;
+var BGImage_Settings_Dict;
+var Frame_1_Style_Dict;
+var Frame_2_Style_Dict;
+var Frame_3_Style_Dict;
+var Frame_4_Style_Dict;
+var Cta_Style_Dict;
+var Cta_Settings_Dict;
+var TCs_Style_Dict;
+var TCs_Settings_Dict;
+var ExtraImage_Settings_Dict;
+
+var FrameOrderArray;
+var colourPaletteArray;
+var currentFrameNo;
+var BGImage_TL;
+var ExtraImg_TL;
+var Cta_TL;
+var TCs_TL;
+var frame_1_TL;
+var frame_2_TL;
+var frame_3_TL;
+var frame_4_TL;
+var frame_1_copy_TL;
+var frame_2_copy_TL;
+var frame_3_copy_TL;
+var frame_4_copy_1_TL;
+
+var activeTransitionTL;
+
+function preInit() {
+  if (Enabler.isInitialized()) {
+    init();
+  } else {
+    Enabler.addEventListener(
+      studio.events.StudioEvent.INIT,
+      init
+    );
+  }
+}
+
+function init() {
+  if (Enabler.isVisible()) {
+    onEnablerVisible();
+  }
+  else {
+    Enabler.addEventListener(studio.events.StudioEvent.VISIBLE, onEnablerVisible);
+  }
+}
+
+function onEnablerVisible () {
+   setDynamic();
+   preload();
+}
+
+setDynamic = function () {
+    Enabler.setProfileId(10041276);
+    devDynamicContent = {};
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary= [{}];
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0]._id = 0;
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Unique_ID = 1;
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].reportingLabel = "////////// LOCAL DATA /////////////////";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].dynamicExit = {};
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].dynamicExit.Url = "https://www.google.com/chromebook/device/google-pixelbook/";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].FrameOrder = "frame_1_TL, frame_2_TL, frame_4_TL";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].colourPalette = "#aaa0d1,#8f83c7,#715fbb,#7c4bb6,#6c2db2,#58388a";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_1_Style =  "{\"width\":\"409\",\"height\":\"90\",\"panelcolour\":\"#6400aa\",\"opacity\":\"1\",\"colour\":\"#fff\",\"size\":\"18\",\"lineH\":\"18\",\"margin\":\"28px 15px 15px 20px\",\"frame1InDelay\":\"1\",\"framePause\":\"2\",\"frameInSpeed\":\"0.5\",\"frameOutSpeed\":\"0.5\",\"copyElementsTimescale\":\"1.5\",\"panelsTimescale\":\"1\"}";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_1_Copy = "We've got your back. Business broadband <br> with new 4G assure."
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_2_Style = "{\"width\":\"409\",\"height\":\"90\",\"panelcolour\":\"#6400aa\",\"opacity\":\"1\",\"colour\":\"#fff\",\"size\":\"18\",\"lineH\":\"18\",\"margin\":\"28px 0px 9px 20px\",\"framePause\":\"2\",\"frameInSpeed\":\"1\",\"frameOutSpeed\":\"0.5\",\"copyElementsTimescale\":\"1.5\",\"panelsTimescale\":\"1\"}";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_2_Copy =  "The UK first and only broadband that <br> can automatically switch to 4G."
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_3_Style = "{\"width\":\"409\",\"height\":\"90\",\"panelcolour\":\"#6400aa\",\"opacity\":\"1\",\"colour\":\"#fff\",\"size\":\"14\",\"lineH\":\"16\",\"margin\":\"30px 0px 9px 20px\",\"framePause\":\"2\",\"frameInSpeed\":\"1\",\"frameOutSpeed\":\"0.5\",\"copyElementsTimescale\":\"1.5\",\"panelsTimescale\":\"1\"}";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_3_Copy =  "This is frame 3 with tiny text<br>and a 3 sec delay."
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_4_Style = "{\"width\":\"572\",\"height\":\"90\",\"panelcolour\":\"#6400aa\",\"opacity\":\"1\",\"colour\":\"#fff\",\"copy_1_size\":\"18\",\"copy_1_lineH\":\"18\",\"copy_1_margin\":\"11px 0px 15px 15px\",\"lineWidth\":\"1\",\"lineLeft\":\"15\",\"copy_2_3_container_top\":\"10\", \"copy_2_size\":\"44\",\"copy_2_lineH\":\"25\",\"copy_2_margin\":\"-29px 0px 12px 20px\",\"copy_3_size\":\"12\",\"copy_3_lineH\":\"11\",\"copy_3_margin\":\"7px 0px 0px 20px\",\"frameInSpeed\":\"1\",\"copyElementsTimescale\":\"1.5\",\"panelsTimescale\":\"1\"}";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].frame_4_copy_1 = "Always stay connected.<br>Business Broadband<br>with 4G Assure."
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].frame_4_copy_2 = "<span class=\'Regular\'>£XX<\/span>"
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].frame_4_copy_3 = ""
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].cta_Style = "{\"left\":\"540\",\"right\":\"10\", \"top\":\"40\", \"colour\":\"#ffffff\", \"bgcolour\":\"#e60050\", \"size\":\"13\", \"padding\":\"2px\", \"borderR\":\"3\"}";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].cta_TL_Settings = "{\"showCta\":\"true\",\"delay\":\"11\"}";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].cta_text = "Buy now"
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].TCs_Style = "{\"left\":\"543\",\"bottom\":\"9\",\"size\":\"9\",\"lineH\":\"10\",\"colour\":\"#ffffff\"}";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].TCs_Text = "T&Cs apply."
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].TCs_TL_Settings = "{\"showTCs\":\"true\",\"delay\":\"11\"}";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].ExtraImage_TL_Settings = "{\"showImage\":\"false\",\"delay\":\"5\", \"hideImage\":\"true\",\"hideDelay\":\"2\"}";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].BGImage_TL_Settings = "{\"animateImage\":\"true\", \"start_x\":\"-50\",\"start_y\":\"-280\",\"start_scale\":\"1\",\"pos_1_delay\":\"1\",\"pos_1_x\":\"-240\",\"pos_1_y\":\"-160\",\"pos_1_scale\":\"0.40\",\"pos_1_duration\":\"0.5\",\"pos_2_delay\":\"8\",\"pos_2_x\":\"-405\",\"pos_2_y\":\"-160\",\"pos_2_scale\":\"0.40\",\"pos_2_duration\":\"1\"}";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].backgroundImage = {};
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].backgroundImage.Type = "file";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].backgroundImage.Url = "dynamic_assets/728x90_bgimg.jpg";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].extraImage = {};
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].extraImage.Type = "file";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].extraImage.Url = "dynamic_assets/728x90_extraimg.png";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].logoImage = {};
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].logoImage.Type = "file";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].logoImage.Url = "dynamic_assets/728x90_logo.png";
+    devDynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].ExtraCode = "test";
+    
+
+
+    Enabler.setDevDynamicContent(devDynamicContent);
+    console.log('/////////// DATA /////////////')
+    console.log(dynamicContent);
+}
+
+function preload () {
+  console.log("------- politeInit()")
+  preload = new createjs.LoadQueue(false);
+  manifest = [
+
+    {src:dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].logoImage.Url, id:"logoImage"},
+    {src:dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].backgroundImage.Url, id:"backgroundImage"},
+  ];
+
+  preload.addEventListener("complete", handleManifastLoadComplete);
+  preload.addEventListener("fileload", handleFileLoaded);
+  preload.loadManifest(manifest);
+}
+
+function handleFileLoaded(event) {
+  console.log("------- handleFileLoaded()")
+  var item = event.item;
+  var id = item.id;
+  var result = event.result;
+  console.log("id = " + item.id);
+      
+    switch (item.type){
+      case createjs.LoadQueue.JAVASCRIPT:
+          document.body.appendChild(result);
+        break;
+    }
+}
+
+function handleManifastLoadComplete(event) {
+    console.log("----- handleManifastLoadComplete()")
+    setUp();
+}
+
+setUp = function() {
+    console.log("----- setUp");
+    setupDom();
+    updateWithDynamicContent();
+    eventListeners();
+    reset();
+    createAnimations();
+    dom.mainContainer.style.visibility = 'visible';
+    playAnimations();
+}
+
+setupDom = function() {
+  console.log("----- setupDom");
+  dom.mainContainer = document.getElementById('main_container');
+  dom.mainContent = document.getElementById('main_content');
+  dom.bgExit = document.getElementById('background_exit');
+  dom.background_image = document.getElementById('background_image');
+  dom.extra_image = document.getElementById('extra_image');
+  dom.frame_bg_panel = document.getElementById('frame_bg_panel'); 
+  dom.frame_1 = document.getElementById('frame_1');
+  dom.frame_1_copy = document.getElementById('frame_1_copy');
+  dom.frame_2 = document.getElementById('frame_2');
+  dom.frame_2_copy = document.getElementById('frame_2_copy');
+  dom.frame_3 = document.getElementById('frame_3');
+  dom.frame_3_copy = document.getElementById('frame_3_copy');
+  dom.frame_4 = document.getElementById('frame_4');
+  dom.frame_4_copy_1 = document.getElementById('frame_4_copy_1');
+  dom.frame_4_copy_2 = document.getElementById('frame_4_copy_2');
+  dom.frame_4_copy_3 = document.getElementById('frame_4_copy_3');
+  dom.frame_4_breakline = document.getElementById('frame_4_breakline');
+  dom.cta = document.getElementById('cta');
+  dom.TCs = document.getElementById('TCs');
+  dom.transition_container = document.getElementById('transition_container'); 
+  dom.frame_logo = document.getElementById('frame_logo'); 
+  dom.frame_4_copy_2_3_container = document.getElementById('frame_4_copy_2_3_container');
+   dom.ExtraCode = document.getElementById('ExtraCode'); 
+//    frame_4_copy_2_3_container
+}
+
+function updateWithDynamicContent () {
+  console.log("----- updateWithDynamicContent");
+  /// Format data ///////////////////////////////////////////////////////////////////////////////////////////
+  Frame_1_Style_Dict = JSON.parse(dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_1_Style);
+  Frame_2_Style_Dict = JSON.parse(dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_2_Style);
+  Frame_3_Style_Dict = JSON.parse(dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_3_Style);
+  Frame_4_Style_Dict = JSON.parse(dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_4_Style);
+  Cta_Style_Dict = JSON.parse(dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].cta_Style);
+  Cta_Settings_Dict = JSON.parse(dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].cta_TL_Settings);
+  TCs_Settings_Dict = JSON.parse(dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].TCs_TL_Settings);
+  TCs_Style_Dict = JSON.parse(dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].TCs_Style);
+  ExtraImage_Settings_Dict = JSON.parse(dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].ExtraImage_TL_Settings);
+  BGImage_Settings_Dict = JSON.parse(dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].BGImage_TL_Settings);
+  FrameOrderArray = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].FrameOrder.split(",");
+  colourPaletteArray = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].colourPalette.split(",");
+
+  ////// set content ///////////////////////////////////////////////////////////////////////////////////////////
+        
+  /// transition panel
+  dom.transition_container.style.width= Frame_1_Style_Dict.width + 'px';
+  dom.transition_container.style.width= Frame_1_Style_Dict.width + 'px';
+     
+    
+  ////// frame 1
+
+  dom.frame_1.style.width = Frame_1_Style_Dict.width + 'px';
+  dom.frame_1.style.height = Frame_1_Style_Dict.height + 'px';
+  dom.frame_1_copy.style.color = Frame_1_Style_Dict.colour;
+  dom.frame_1_copy.style.fontSize = Frame_1_Style_Dict.size + 'px';
+  dom.frame_1_copy.style.lineHeight = Frame_1_Style_Dict.lineH + 'px';
+  dom.frame_1_copy.style.margin = Frame_1_Style_Dict.margin;
+  dom.frame_1_copy.innerHTML = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_1_Copy;
+
+   ////// frame 2
+  dom.frame_2.style.width = Frame_2_Style_Dict.width + 'px';
+  dom.frame_2.style.height = Frame_2_Style_Dict.height + 'px';
+  dom.frame_2_copy.style.color = Frame_2_Style_Dict.colour;
+  dom.frame_2_copy.style.fontSize = Frame_2_Style_Dict.size + 'px';
+  dom.frame_2_copy.style.lineHeight = Frame_2_Style_Dict.lineH + 'px';
+  dom.frame_2_copy.style.margin = Frame_2_Style_Dict.margin;
+  dom.frame_2_copy.innerHTML = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_2_Copy;
+
+  ////// frame 3
+  dom.frame_3.style.width = Frame_3_Style_Dict.width + 'px';
+  dom.frame_3.style.height = Frame_3_Style_Dict.height + 'px';
+  dom.frame_3_copy.style.color = Frame_3_Style_Dict.colour;
+  dom.frame_3_copy.style.fontSize = Frame_3_Style_Dict.size + 'px';
+  dom.frame_3_copy.style.lineHeight = Frame_3_Style_Dict.lineH + 'px';
+  dom.frame_3_copy.style.margin = Frame_3_Style_Dict.margin;
+  dom.frame_3_copy.innerHTML = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].Frame_3_Copy;
+
+
+  ////// frame 4
+  dom.frame_4.style.width = Frame_4_Style_Dict.width + 'px';
+  dom.frame_4.style.height = Frame_4_Style_Dict.height + 'px';
+  dom.frame_4_copy_1.style.color = Frame_4_Style_Dict.colour;
+  dom.frame_4_copy_1.style.fontSize = Frame_4_Style_Dict.copy_1_size + 'px';
+  dom.frame_4_copy_1.style.lineHeight = Frame_4_Style_Dict.copy_1_lineH + 'px';
+  dom.frame_4_copy_1.style.margin = Frame_4_Style_Dict.copy_1_margin;
+  dom.frame_4_copy_1.innerHTML = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].frame_4_copy_1;
+  dom.frame_4_breakline.style.width = Frame_4_Style_Dict.lineWidth + 'px';
+  dom.frame_4_breakline.style.left = Frame_4_Style_Dict.lineLeft + 'px';
+    
+  dom.frame_4_copy_2.style.color = Frame_4_Style_Dict.colour;
+  dom.frame_4_copy_2.style.fontSize = Frame_4_Style_Dict.copy_2_size + 'px';
+  dom.frame_4_copy_2.style.lineHeight = Frame_4_Style_Dict.copy_2_lineH + 'px';
+  dom.frame_4_copy_2.style.margin = Frame_4_Style_Dict.copy_2_margin;
+  dom.frame_4_copy_2.innerHTML = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].frame_4_copy_2;
+  
+  dom.frame_4_copy_3.style.color = Frame_4_Style_Dict.colour;
+  dom.frame_4_copy_3.style.fontSize = Frame_4_Style_Dict.copy_3_size + 'px';
+  dom.frame_4_copy_3.style.lineHeight = Frame_4_Style_Dict.copy_3_lineH + 'px';
+  dom.frame_4_copy_3.style.margin = Frame_4_Style_Dict.copy_3_margin;
+
+  dom.frame_4_copy_3.innerHTML = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].frame_4_copy_3;
+  dom.frame_4_copy_2_3_container.style.top = Frame_4_Style_Dict.copy_2_3_container_top + 'px';
+
+  //logo
+    
+  dom.frame_logo.style.backgroundImage= 'url(' + dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].logoImage.Url + ')';
+    
+  // cta
+  dom.cta.style.left = Cta_Style_Dict.left + 'px';
+  dom.cta.style.top = Cta_Style_Dict.top + 'px';
+  dom.cta.style.color = Cta_Style_Dict.colour;
+  dom.cta.style.backgroundColor = Cta_Style_Dict.bgcolour;
+  dom.cta.style.fontSize = Cta_Style_Dict.size + 'px';
+  dom.cta.style.padding = Cta_Style_Dict.padding;
+  dom.cta.style.borderRadius = Cta_Style_Dict.borderR + 'px';
+  dom.cta.innerHTML = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].cta_text;
+
+  /// TCs
+  dom.TCs.style.left = TCs_Style_Dict.left + 'px';
+  dom.TCs.style.bottom = TCs_Style_Dict.bottom + 'px';
+  dom.TCs.style.fontSize = TCs_Style_Dict.size + 'px';
+  dom.TCs.style.lineHeight = TCs_Style_Dict.lineH + 'px';
+  dom.TCs.style.color = TCs_Style_Dict.colour;
+  dom.TCs.innerHTML = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].TCs_Text;
+
+  /// bg img
+  background_image.src = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].backgroundImage.Url;
+  extra_image.src = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].extraImage.Url;
+
+  dom.ExtraCode.innerHTML = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].ExtraCode;
+
+}
+
+reset = function  () {
+    console.log("----- reset");
+    currentFrameNo = 0;
+    killtimeline(BGImage_TL);
+    killtimeline(ExtraImg_TL);
+    killtimeline(Cta_TL);
+    killtimeline(TCs_TL);
+    killtimeline(frame_1_copy_TL);
+    killtimeline(frame_1_TL);
+    killtimeline(frame_2_copy_TL);
+    killtimeline(frame_2_TL);
+    killtimeline(frame_3_copy_TL);
+    killtimeline(frame_3_TL);
+    killtimeline(frame_4_copy_1_TL);
+    killtimeline(frame_4_TL);
+    TweenLite.set(dom.extra_image, {opacity:0});
+    TweenLite.set(dom.cta, {opacity:0});
+    TweenLite.set(dom.TCs, {opacity:0});
+    TweenLite.set(dom.frame_logo, {opacity:0});
+
+    TweenLite.set(dom.frame_1_copy, {x:0});
+    TweenLite.set(dom.frame_1_copy, {x:0});
+    TweenLite.set(dom.frame_1_copy, {x:0});
+    TweenLite.set(dom.frame_1_copy, {x:0});
+
+    TweenLite.set(dom.transition_container, {width:Frame_1_Style_Dict.width});
+
+    
+
+    TweenLite.set(dom.frame_4_breakline, {scaleY:0, transformOrigin:'0% 50%'});
+    TweenLite.set(dom.frame_bg_panel, {width:0, backgroundColor:Frame_1_Style_Dict.panelcolour, opacity:Frame_1_Style_Dict.opacity});
+    TweenLite.set(dom.frame_4_copy_2_3_container, {opacity:0, x:-25});
+    TweenLite.set(dom.background_image , {rotationZ:0.001, x:BGImage_Settings_Dict.start_x, y:BGImage_Settings_Dict.start_y, scale:BGImage_Settings_Dict.start_scale});
+}
+
+killtimeline = function (timeline) {
+  if (timeline) {
+    timeline.kill();
+    timeline.gotoAndStop(0);
+  }
+}
+
+createAnimations = function () {
+    console.log("----- createAnimations");
+  
+    Cta_TL = new TimelineMax({paused:true});
+    Cta_TL.to(dom.cta, 0.5, {delay:Cta_Settings_Dict.delay, opacity:1, ease: Power1.easeOut});
+
+    TCs_TL = new TimelineMax({paused:true});
+    TCs_TL.to(dom.TCs, 0.5, {delay:TCs_Settings_Dict.delay, opacity:1, ease: Power1.easeOut});
+
+    ExtraImg_TL = new TimelineMax({paused:true});
+    ExtraImg_TL.to(dom.extra_image, 0.5, {delay:ExtraImage_Settings_Dict.delay, opacity:1, ease: Power1.easeOut});
+
+    if (ExtraImage_Settings_Dict.hideImage == "true") {
+        ExtraImg_TL.to(dom.extra_image, 0.5, {delay:ExtraImage_Settings_Dict.hideDelay, opacity:0, ease: Power1.easeOut});
+    }
+
+    
+    BGImage_TL = new TimelineMax({paused:true});
+    BGImage_TL.to(dom.background_image , BGImage_Settings_Dict.pos_1_duration, {delay:BGImage_Settings_Dict.pos_1_delay, x:BGImage_Settings_Dict.pos_1_x, y:BGImage_Settings_Dict.pos_1_y, scale:BGImage_Settings_Dict.pos_1_scale, ease: Power1.easeOut});
+    BGImage_TL.to(dom.background_image , BGImage_Settings_Dict.pos_2_duration, {delay:BGImage_Settings_Dict.pos_2_delay, x:BGImage_Settings_Dict.pos_2_x, y:BGImage_Settings_Dict.pos_2_y, scale:BGImage_Settings_Dict.pos_2_scale, ease: Power1.easeOut});
+
+    ////// FRAME 1
+    frame_1_copy_TL = new TimelineMax({paused:true});
+    frame_1_copy_TL.timeScale(Frame_1_Style_Dict.copyElementsTimescale);
+    frame_1_copy_SplitText = new SplitText(dom.frame_1_copy, {type:"lines, chars"}), 
+    frame_1_copy_chars = frame_1_copy_SplitText.lines;
+    frame_1_copy_TL.staggerFrom(frame_1_copy_chars, 1, {delay:0, opacity:0, y:20}, 0.1, "+=0");
+        
+    frame_1_TL = new TimelineMax({paused:true});
+    frame_1_TL.to(dom.frame_bg_panel , Frame_1_Style_Dict.frameInSpeed, {delay:Frame_1_Style_Dict.frame1InDelay, ease: Power1.easeOut,css:{width:Frame_1_Style_Dict.width}, onComplete:playTimeline, onCompleteParams:[frame_1_copy_TL]});
+    frame_1_TL.to(dom.frame_logo, 1,{opacity:1});
+    frame_1_TL.to(dom.frame_1_copy, Frame_1_Style_Dict.frameOutSpeed, {delay: Frame_1_Style_Dict.framePause, x:-stageWidth, ease: Power1.easeOut, onStart:transition, onComplete:PlayNextFrame});
+
+    ////// FRAME 2
+    frame_2_copy_TL = new TimelineMax({paused:true});
+    frame_2_copy_TL.timeScale(Frame_2_Style_Dict.copyElementsTimescale);
+    frame_2_copy_SplitText = new SplitText(dom.frame_2_copy, {type:"lines, chars"}), 
+    frame_2_copy_chars = frame_2_copy_SplitText.lines;
+    frame_2_copy_TL.staggerFrom(frame_2_copy_chars, 1, {delay:0, opacity:0, y:20}, 0.1, "+=0");
+
+    frame_2_TL = new TimelineMax({paused:true});
+    frame_2_TL.to(dom.frame_bg_panel,Frame_2_Style_Dict.frameInSpeed, {delay:0, width:Frame_2_Style_Dict.width, ease: Power1.easeOut, backgroundColor:Frame_2_Style_Dict.panelcolour, onComplete:playTimeline, onCompleteParams:[frame_2_copy_TL]});
+    frame_2_TL.to(dom.transition_container,Frame_2_Style_Dict.frameInSpeed, {delay:-Frame_2_Style_Dict.frameInSpeed, width:Frame_2_Style_Dict.width,  ease: Power1.easeOut});
+    frame_2_TL.to(dom.frame_2_copy, Frame_2_Style_Dict.frameOutSpeed, {delay: Frame_2_Style_Dict.framePause, x:-stageWidth, ease: Power1.easeOut,onStart:transition, onComplete:PlayNextFrame});
+
+    ////// FRAME 3
+    frame_3_copy_TL = new TimelineMax({paused:true});
+    frame_3_copy_TL.timeScale(Frame_3_Style_Dict.copyElementsTimescale);
+    frame_3_copy_SplitText = new SplitText(dom.frame_3_copy, {type:"lines, chars"}), 
+    frame_3_copy_chars = frame_3_copy_SplitText.lines;
+    frame_3_copy_TL.staggerFrom(frame_3_copy_chars, 1, {delay:0, opacity:0, y:20}, 0.1, "+=0");
+
+    frame_3_TL = new TimelineMax({paused:true});
+    frame_3_TL.to(dom.frame_bg_panel,Frame_3_Style_Dict.frameInSpeed, {delay:0, width:Frame_3_Style_Dict.width, ease: Power1.easeOut, backgroundColor:Frame_3_Style_Dict.panelcolour, onComplete:playTimeline, onCompleteParams:[frame_3_copy_TL]});
+    frame_3_TL.to(dom.transition_container,Frame_3_Style_Dict.frameInSpeed, {delay:-Frame_3_Style_Dict.frameInSpeed, width:Frame_3_Style_Dict.width,  ease: Power1.easeOut});
+    frame_3_TL.to(dom.frame_3_copy, Frame_3_Style_Dict.frameOutSpeed, {delay: Frame_3_Style_Dict.framePause, x:-stageWidth, ease: Power1.easeOut,onStart:transition, onStart:PlayNextFrame});
+
+    ////// FRAME 4
+    frame_4_copy_1_TL = new TimelineMax({paused:true});
+    frame_4_copy_1_TL.timeScale(Frame_4_Style_Dict.copyElementsTimescale);
+    frame_4_copy_1_SplitText = new SplitText(dom.frame_4_copy_1, {type:"lines, chars"}), 
+    frame_4_copy_1_chars = frame_4_copy_1_SplitText.lines;
+    frame_4_copy_1_TL.staggerFrom(frame_4_copy_1_chars, 1, {delay:0, opacity:0, y:20}, 0.1, "+=0");
+    frame_4_copy_1_TL.to(dom.frame_4_breakline, 0.5, {delay:-0.7, scaleY:1, ease: Power1.easeOut});
+    frame_4_copy_1_TL.to(dom. frame_4_copy_2_3_container, 0.5, {delay:-0.2,opacity:1, x:0, ease: Power1.easeOut});
+    
+    frame_4_TL = new TimelineMax({paused:true});
+    frame_4_TL.to(dom.frame_bg_panel,Frame_4_Style_Dict.frameInSpeed, {delay:1, width:Frame_4_Style_Dict.width, backgroundColor:Frame_4_Style_Dict.panelcolour,ease: Power1.easeOut, onComplete:playTimeline, onCompleteParams:[frame_4_copy_1_TL]});
+    frame_4_TL.to(dom.transition_container,Frame_4_Style_Dict.frameInSpeed, {delay:-Frame_4_Style_Dict.frameInSpeed, width:Frame_4_Style_Dict.width ,ease: Power1.easeOut});
+}
+
+
+function transition () {
+
+  for (i = 0; i < colourPaletteArray.length; i++) { 
+    var panel = document.createElement('div');
+    var initialWidth = getRandomNumber(20, 100);
+    var initialXPos = stageWidth;
+
+
+
+    var target_1_XPos = getRandomNumber(0, dom.transition_container.offsetWidth);
+    var target_1_Duration = getRandomNumber(100, 150) / 100;
+    var initialDelay = getRandomNumber(0, 10) / 100;
+    var stretchFactor = getRandomNumber(20, 200) / 100;
+    var easrArray = [Back.easeOut.config(1.7), Power4.easeInOut, Elastic.easeInOut.config(1, 0.5)];
+    var easeToUse = easrArray[getRandomNumber(0, easrArray.length)];
+    TweenLite.set(panel, {className: '+=transition_panel'});
+    TweenLite.set(panel, {width:initialWidth,backgroundColor:colourPaletteArray[i], opacity:0.8, x:initialXPos});
+     
+    dom.transition_container.appendChild(panel);
+    
+    var panel_TL = new TimelineMax({paused:false, onComplete:disposeOfPanel, onCompleteParams:[panel_TL, panel]});
+
+    console.log('activeTransitionTL == ' + activeTransitionTL)
+
+    switch(activeTransitionTL) {
+    case frame_1_TL:
+        console.log("///////////////// frame_1_TL");
+        panel_TL.timeScale(Frame_1_Style_Dict.panelsTimescale);
+        break;
+    case frame_2_TL:
+        console.log("///////////////// frame_2_TL");
+        panel_TL.timeScale(Frame_2_Style_Dict.panelsTimescale);
+        break;
+    case frame_3_TL:
+        console.log("///////////////// frame_3_TL");
+        panel_TL.timeScale(Frame_3_Style_Dict.panelsTimescale);
+        break;
+    case frame_4_TL:
+        console.log("///////////////// frame_4_TL");
+        panel_TL.timeScale(Frame_4_Style_Dict.panelsTimescale);
+        break;
+    default:
+        console.log("no active transition");
+  }
+    panel_TL.to(panel, target_1_Duration, {delay:initialDelay, x:target_1_XPos, ease: easeToUse});
+    panel_TL.to(panel, target_1_Duration, {delay:-target_1_Duration, scaleX:stretchFactor, ease: easeToUse});
+    panel_TL.to(panel, 0.5, {delay:-0.5, opacity:0, ease: Power1.easeIn});
+  }
+}
+
+function disposeOfPanel (panel_TL, panel) {
+  dom.transition_container.removeChild(panel);
+  killtimeline(panel_TL);
+}
+
+function getRandomNumber (low, high) {
+  var num = Math.floor((Math.random() * high) + low);
+  return num;
+}
+
+function PlayNextFrame () {
+
+  activeTransitionTL = eval(FrameOrderArray[currentFrameNo]);
+  if (currentFrameNo != 0) {
+    transition();
+  }
+  playTimeline(eval(FrameOrderArray[currentFrameNo]));
+  currentFrameNo ++;
+}
+
+playAnimations = function () {
+	console.log("----- playAnimations");
+  playCount++;
+  console.log('playCount = ' + playCount);
+  PlayNextFrame ();
+  playTimeline(BGImage_TL); 
+
+  if (Cta_Settings_Dict.showCta == "true") {playTimeline(Cta_TL)}
+  if (TCs_Settings_Dict.showTCs == "true") {playTimeline(TCs_TL)}
+  if (ExtraImage_Settings_Dict.showImage == "true") {playTimeline(ExtraImg_TL)}
+  if (BGImage_Settings_Dict.animateImage == "true") {playTimeline(BGImage_TL)}
+}
+
+playTimeline = function (timeline) {
+  timeline.gotoAndPlay(0);
+}
+
+eventListeners = function() {
+    console.log("----- eventListeners");
+    dom.bgExit.addEventListener('click', exitHandler, false); 
+}
+
+exitHandler = function(e) {
+    console.log('click');
+
+//    transition();
+    //return;
+
+    //reset();
+    //playAnimations();
+    //return;
+    var dynamicExit = dynamicContent.BT_Business_Broadband_4G_Assure_2018__Summary[0].dynamicExit.Url;
+    var dcmSuffix = addSuffix(dynamicExit, 'exit_suffix')
+    Enabler.exitOverride('Exit', dcmSuffix);
+}
+
+function addSuffix(url, dcmParameter) { 
+  var urlSuffix = Enabler.getParameter(dcmParameter); 
+  var _url = ''; 
+
+  if (url) { 
+    var symbol = (url.indexOf('?') > -1) ? '&': '?'; 
+    if(urlSuffix) { 
+      while (urlSuffix.charAt(0) == '?' || urlSuffix.charAt(0) == '&') { 
+        urlSuffix = urlSuffix.substring(1); 
+      } 
+      if (urlSuffix.indexOf('?') > -1) { 
+        urlSuffix = urlSuffix.replace(/\?/g, '&'); 
+      } 
+    } 
+    _url = url + symbol + urlSuffix; 
+  } 
+  return _url; 
+}
+
+window.addEventListener('load', preInit);

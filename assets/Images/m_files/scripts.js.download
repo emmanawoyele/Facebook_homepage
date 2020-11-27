@@ -1,0 +1,781 @@
+//////////////////////////////////////////////
+/*              DYNAMIC VARS                */
+//////////////////////////////////////////////
+var id, Strategy, startDate_RawValue, startDate_UtcValue, endDate_RawValue, endDate_UtcValue, Dynamic_Exit, Logo, Handset_Image, Frame_2, Frame_3, Flare, Roundel_Text, Roundel_Style, Offer1_Data, Offer1_for, Offer1_Price, Offer2_Data, Offer2_for, Offer2_Price, Countdown_Text, Countdown_Date_RawValue, Countdown_Date_UtcValue, Countdown_Controls, Voucher_Image, Voucher_Text, Voucher_Amount, Text_01, Text_01_Style, Text_02, Text_02_Style, Text_03, Text_03_Style, Extra_Image, Extra_Image_Controls, Background_Image, Background_Color, Final_Frame_Version, CTA, CTA_Style, CTA_Controls, TCs, TCs_Style, Extra_Code, JS_File, CSS_File, Frame2_Array, tc1, tc2, tc3, days, hours, minutes, secondes, countdownDivs, now, distance;
+;
+
+
+
+//////////////////////////////////////////////
+/*                APP VARS                  */
+//////////////////////////////////////////////
+
+var yPos = 0;
+var flareLoop = 0;
+var LOOPING = true;
+
+// defined Y positions
+var offer1YPos = 22,
+    offer2YPos = 45,
+    handsetYPos = 56,
+    rewardCardYPos = 46,
+    textYPos = 170,
+    ctaYPos = 125;
+
+// elements
+var wrapper, bg, of1, of2, handset, reward, txt1, txt2, txt3, cta, legal;
+
+
+
+// Dynamic Content variables and sample values
+    Enabler.setProfileId(10422437);
+    var devDynamicContent = {};
+
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary= [{}];
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0]._id = 0;
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].id = 1;
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Strategy = "Jan Sale";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].reportingLabel = "Jan Sale_\u00A3XXX Voucher_11.Jan.2019_300x250";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].isActive = true;
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].startDate = {};
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].startDate.RawValue = "1/11/2019";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].startDate.UtcValue = 1547164800000;
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].endDate = {};
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].endDate.RawValue = "1/17/2019 23:59:00";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].endDate.UtcValue = 1547769540000;
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Concat = "V1_Jan Sale_\u00A3XXX Voucher_11.Jan.2019_300x250";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Dynamic_Exit = {};
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Dynamic_Exit.Url = "";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Logo = {};
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Logo.Type = "file";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Logo.Url = "024144_BT_BB_March_Give_MAX_160x600.png";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Handset_Image = {};
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Handset_Image.Type = "file";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Handset_Image.Url = "https://s0.2mdn.net/ads/richmedia/studio/4121/4121_20171221081956209_pixel.png";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Handset_Style = "0, 0, scale(1)";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Handset_Logo_Image = {};
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Handset_Logo_Image.Type = "file";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Handset_Logo_Image.Url = "https://s0.2mdn.net/ads/richmedia/studio/4121/4121_20171221081956209_pixel.png";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Handset_Logo_Style = "0, 0, scale(1)";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Frame_2 = "{\"Frame2Delay\":\"4\", \"Frame2Speed\":\".5\"}";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Frame_3 = "{\"Frame3Delay\":\"4\", \"Frame3Speed\":\".5\"}";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Flare = "{\"Flare_Boolean\":\"true\", \"Flare_Delay\":\"0\", \"Flare_Loops\":\"1\", \"Flare_Interlude\":\"2\"}";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Roundel_Text = "<div style=\'margin-top: 20px;display:none;\'>Was<br>\u00A327<\/div>";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Roundel_Style = "{\"Top\":\"20px\", \"Left\":\"160px\", \"Width\":\"0px\", \"Height\":\"0px\", \"BorderRadius\":\"50px\", \"RoundelBackground\":\"linear-gradient(#e60050,#e60050)\"}";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Offer1_Data = "";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Offer1_for = "";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Offer1_Price = "";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Offer2_Data = "";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Offer2_for = "";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Offer2_Price = "";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Countdown_Text = "Mobile sale ends in";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Countdown_Date = {};
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Countdown_Date.RawValue = "01/17/2019 23:59";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Countdown_Date.UtcValue = 1547769540000;
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Countdown_Controls = "{\"Countdown_Type\":\"Day + Hours\", \"Appear\":\"Frame0\", \"Disappear\":\"Frame\"}";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Voucher_Image = {};
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Voucher_Image.Type = "file";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Voucher_Image.Url = "Reward-Card_160x600.png";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Voucher_Text = "UP TO";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Voucher_Amount = "";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Voucher_Style = "290, 47, #FFF";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Text_01 = "<b>Superfast<br>Fibre, & your<br>choice of tech<br> on us</b><br><h15 style='line-height: 17px; margin-top:10px;'><l>Choose an Amazon<br> Echo, a Fitbit Charge 3<br> or a Samsung Galaxy Tablet. <b>Ends 14th<br> March.</b></l></h15>";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Text_01_Style = "70, 11, left, 22px, 24px, #FFF";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Text_02 = "";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Text_02_Style = "50, 20, left, 20px, 25px, #FFF";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Text_03 = "";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Text_03_Style = "50, 20, left, 20px, 25px, #FFF";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Extra_Image = {};
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Extra_Image.Type = "file";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Extra_Image.Url = "https://s0.2mdn.net/ads/richmedia/studio/4121/4121_20171221081956209_pixel.png";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Extra_Image_Controls = "{\"Appear\":\"Frame0\", \"Disappear\":\"Frame3\", \"Top\":\"0px\", \"Left\":\"0px\", \"Width\":\"300px\", \"Height\":\"250px\"}";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Background_Image = {};
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Background_Image.Type = "file";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Background_Image.Url = "024144_BT_BB_March_Give_MAX_160x600.jpg";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Background_Color = "#6300a9";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Final_Frame_Version = "Postcode";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].CTA = "Join today";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].CTA_Style = "280, 31, center, 12px, 24px, #FFF, 1px 3px, 0px 0px, linear-gradient(#e60050,#e60050), 3px";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].CTA_Controls = "{\"Appear\":\"Frame1\", \"Disappear\":\"Frame\", \"Width\":\"auto\", \"Height\":\"auto\"}";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].TCs = "<div id=\"TC1\" style=\'display:block;\'><l>Terms apply.</l></div>";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].TCs_Style = "317, 57, left, 9px, 10px, #FFF";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Extra_Code = "<style>#reward-card{background-size: contain; width:67px; height:67px;}#reward-card-text{top:27px; left:-5px; font-size: 6px;}#reward-card-amount{right: -12px; top: 18px; font-size: 14px;}</style>";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].JS_File = "300x250_pixel.png";
+    devDynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].CSS_File = "300x250_pixel.png";
+    Enabler.setDevDynamicContent(devDynamicContent);
+
+
+
+
+//  Start the AD on load
+function init()
+{
+    window.startDate_RawValue = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].startDate.RawValue;
+    window.startDate_UtcValue = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].startDate.UtcValue;
+    window.endDate_RawValue = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].endDate.RawValue;
+    window.endDate_UtcValue = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].endDate.UtcValue;
+
+    window.Dynamic_Exit = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Dynamic_Exit.Url;
+
+    window.Logo = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Logo.Url;
+
+    window.Handset_Image = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Handset_Image.Url;
+    window.Handset_Style = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Handset_Style;
+
+    window.Handset_Logo_Image = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Handset_Logo_Image.Url;
+    window.Handset_Logo_Style = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Handset_Logo_Style;
+
+    window.Frame_2 = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Frame_2;
+    window.Frame_3 = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Frame_3;
+
+    window.Flare = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Flare;
+
+    window.Roundel_Text = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Roundel_Text;
+    window.Roundel_Style = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Roundel_Style;
+
+    window.Offer1_Data = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Offer1_Data;
+    window.Offer1_for = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Offer1_for;
+    window.Offer1_Price = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Offer1_Price;
+    window.Offer2_Data = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Offer2_Data;
+    window.Offer2_for = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Offer2_for;
+    window.Offer2_Price = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Offer2_Price;
+
+    window.Countdown_Text = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Countdown_Text;
+    window.Countdown_Date_RawValue = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Countdown_Date.RawValue;
+    window.Countdown_Date_UtcValue = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Countdown_Date.UtcValue;
+    window.Countdown_Controls = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Countdown_Controls;
+
+    window.Voucher_Image = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Voucher_Image.Url;
+    window.Voucher_Text = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Voucher_Text;
+    window.Voucher_Amount = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Voucher_Amount;
+    window.Voucher_Style = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Voucher_Style;
+
+    window.Text_01 = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Text_01;
+    window.Text_01_Style = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Text_01_Style;
+    window.Text_02 = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Text_02;
+    window.Text_02_Style = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Text_02_Style;
+    window.Text_03 = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Text_03;
+    window.Text_03_Style = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Text_03_Style;
+
+    window.Extra_Image = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Extra_Image.Url;
+    window.Extra_Image_Controls = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Extra_Image_Controls;
+
+    window.Background_Image = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Background_Image.Url;
+    window.Background_Color = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Background_Color;
+
+    window.Final_Frame_Version = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Final_Frame_Version;
+
+    window.CTA = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].CTA;
+    window.CTA_Style = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].CTA_Style;
+    window.CTA_Controls = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].CTA_Controls;
+
+    window.TCs = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].TCs;
+    window.TCs_Style = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].TCs_Style;
+
+    window.Extra_Code = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Extra_Code;
+
+    window.JS_File = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].JS_File.Url;
+    window.CSS_File = dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].CSS_File.Url;
+
+// Arrays
+
+    window.Frame2_Array = JSON.parse(dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Frame_2);
+    window.frame2Delay = Frame2_Array.Frame2Delay;
+    window.frame2Speed = Frame2_Array.Frame2Speed;
+
+    window.Frame3_Array = JSON.parse(dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Frame_3);
+    window.frame3Delay = Frame3_Array.Frame3Delay;
+    window.frame3Speed = Frame3_Array.Frame3Speed;
+
+    window.Flare_Array = JSON.parse(dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Flare);
+    window.flareBoolean = Flare_Array.Flare_Boolean;
+    window.flareDelay = Flare_Array.Flare_Delay;// delay on first flare anim
+    window.flareLoops = Flare_Array.Flare_Loops;// how many times it animates
+    window.flareInterlude = Flare_Array.Flare_Interlude; // gap between each animation
+
+    window.handsetArray = Handset_Style.split(", "); window.handsetLogoArray = Handset_Logo_Style.split(", ");
+    window.voucherArray = Voucher_Style.split(", ");
+    window.text1Array = Text_01_Style.split(", ");
+    window.text2Array = Text_02_Style.split(", ");
+    window.text3Array = Text_03_Style.split(", ");
+    window.ctaArray = CTA_Style.split(", ");
+    window.tcsArray = TCs_Style.split(", ");
+
+    window.VoucherImage = Voucher_Image;
+
+    window.Extra_Image_Array = JSON.parse(dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Extra_Image_Controls);
+    window.Extra_Image_Appear = Extra_Image_Array.Appear;
+    window.Extra_Image_Disappear = Extra_Image_Array.Disappear;
+    window.Extra_Image_Top = Extra_Image_Array.Top;
+    window.Extra_Image_Left = Extra_Image_Array.Left;
+    window.Extra_Image_Width = Extra_Image_Array.Width;
+    window.Extra_Image_Height = Extra_Image_Array.Height;
+
+    window.CTA_Array = JSON.parse(dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].CTA_Controls);
+    window.CTA_Appear = CTA_Array.Appear;
+    window.CTA_Disappear = CTA_Array.Disappear;
+    window.CTA_Width = CTA_Array.Width;
+    window.CTA_Height = CTA_Array.Height;
+
+    // 10, 0, center, 31px, 31px, #FFF
+    // cta legal
+
+    window.Countdown_Array = JSON.parse(dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Countdown_Controls);
+    window.Countdown_Type = Countdown_Array.Countdown_Type;
+    window.Countdown_Appear = Countdown_Array.Appear;
+    window.Countdown_Disappear = Countdown_Array.Disappear;
+
+    //\"Top\":\"0px\", \"Left\":\"0px\", \"Width\":\"20px\", \"Height\":\"20px\", \"BorderRadius\":\"50px\"
+
+    window.Roundel_Array = JSON.parse(dynamicContent.BT_Broadband__Dynamic__Feb_2019_Refresh_Summary[0].Roundel_Style);
+    window.Roundel_Appear = Roundel_Array.Appear;
+    window.Roundel_Disappear = Roundel_Array.Disappear;
+
+    window.Roundel_Top = Roundel_Array.Top;
+    window.Roundel_Left = Roundel_Array.Left;
+    window.Roundel_Width = Roundel_Array.Width;
+    window.Roundel_Height = Roundel_Array.Height;
+    window.Roundel_Broder_Radius = Roundel_Array.BorderRadius;
+    window.Roundel_Background = Roundel_Array.RoundelBackground;
+
+
+    createAd();
+    // set lens flare for format
+    setTimeout(function(){if (flareBoolean == "true") {setFlare();}}, flareDelay*1000);
+};
+
+//Wait for the content to load to call the start od the ad
+window.onload = function(){
+    if (Enabler.isInitialized())
+    {
+	  enablerInitHandler();
+	} else {
+	  Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitHandler);
+	}
+}
+
+//Function confirm if the creative is visible
+enablerInitHandler = function(e) {
+    if(Enabler.isVisible()) {
+	   init();
+    } else {
+	   Enabler.addEventListener(studio.events.StudioEvent.VISIBLE, init);
+    }
+};
+
+
+
+function createAd(){
+
+
+    // get the elements from the dom
+    wrapper = document.getElementById("wrapper");
+    bg = document.getElementById("bg");
+
+    Roundel = document.getElementById("Roundel");
+    RoundelText = document.getElementById("Roundel_Text");
+    RoundelText.innerHTML = Roundel_Text;
+
+    of1 = document.getElementById("offer1");
+    of2 = document.getElementById("offer2");
+
+    Off1_Data = document.getElementById("Offer1_Data");
+    Off1_for = document.getElementById("Offer1_for");
+    Off1_Price = document.getElementById("Offer1_Price");
+
+    Off2_Data = document.getElementById("Offer2_Data");
+    Off2_for = document.getElementById("Offer2_for");
+    Off2_Price = document.getElementById("Offer2_Price");
+
+    handset = document.getElementById("handset");  handsetLogo = document.getElementById("handset_logo");
+
+    reward = document.getElementById("reward-card");
+    rewardCardTxt = document.getElementById("reward-card-text");
+    rewardCardAmnt = document.getElementById("reward-card-amount");
+    txt1 = document.getElementById("text1");
+    txt2 = document.getElementById("text2");
+    txt3 = document.getElementById("text3");
+
+    Countdown_Text = document.getElementById("Countdown_Text");
+
+    ExtraImage = document.getElementById("Extra_Image");
+    if(Extra_Image!="")ExtraImage.style.backgroundImage = "url('"+Extra_Image+"')";
+
+    ExtraImage.style.top = Extra_Image_Top;
+    ExtraImage.style.left = Extra_Image_Left;
+    ExtraImage.style.width = Extra_Image_Width;
+    ExtraImage.style.height = Extra_Image_Height;
+
+    cta = document.getElementById("cta");
+    cta.style.width = CTA_Width;
+    cta.style.height = CTA_Height;
+
+    legal = document.getElementById("legal-text");
+
+    ExtraCode = document.getElementById("Extra_Code");
+    ExtraCode.innerHTML = Extra_Code;
+
+    // add content to elements
+
+    if(Background_Color!="")bg.style.backgroundColor = Background_Color;
+    if(Background_Image!="")bg.style.backgroundImage = "url('"+Background_Image+"')";
+    if(Handset_Image!="")handset.style.backgroundImage = "url('"+Handset_Image+"')";  if(Handset_Logo_Image!="")handsetLogo.style.backgroundImage = "url('"+Handset_Logo_Image+"')";
+    if(Logo!="")logo.style.backgroundImage = "url('"+Logo+"')";
+
+   // Roundel.Appear = Roundel_Appear;
+   // Roundel.Disappear = Roundel_Disappear;
+    Roundel.style.top = Roundel_Top;
+    Roundel.style.left = Roundel_Left;
+    Roundel.style.width = Roundel_Width;
+    Roundel.style.height = Roundel_Height;
+
+    RoundelText.style.width = Roundel_Width;
+    RoundelText.style.height = Roundel_Height;
+
+    Roundel.style.borderRadius = Roundel_Broder_Radius;
+    Roundel.style.background = Roundel_Background;
+
+
+    Off1_Data.innerHTML = Offer1_Data;
+    Off1_for.innerHTML = Offer1_for;
+    Off1_Price.innerHTML = Offer1_Price;
+
+    Off2_Data.innerHTML = Offer2_Data;
+    Off2_for.innerHTML = Offer2_for;
+    Off2_Price.innerHTML = Offer2_Price;
+
+    txt1.innerHTML = Text_01;
+    txt2.innerHTML = Text_02;
+    txt3.innerHTML = Text_03;
+    reward.style.backgroundImage = "url('"+Voucher_Image+"')";
+    rewardCardTxt.innerHTML = Voucher_Text;
+    rewardCardAmnt.innerHTML = Voucher_Amount;
+    cta.innerHTML = CTA;
+    legal.innerHTML = TCs;
+
+    handset.style.top = handsetArray[0] + "px";
+    handset.style.left = handsetArray[1] + "px";     handset.style.transform = handsetArray[2];
+
+    handsetLogo.style.top = handsetLogoArray[0] + "px";
+    handsetLogo.style.left = handsetLogoArray[1] + "px";     handsetLogo.style.transform = handsetLogoArray[2];
+
+    reward.style.top = voucherArray[0] + "px";
+    reward.style.left = voucherArray[1] + "px";
+    reward.style.color = voucherArray[2];
+
+    txt1.style.top = text1Array[0] + "px";
+    txt1.style.left = text1Array[1] + "px";
+    txt1.style.textAlign = text1Array[2];
+    txt1.style.fontSize = text1Array[3];
+    txt1.style.lineHeight = text1Array[4];
+    txt1.style.color = text1Array[5];
+
+    txt2.style.top = text2Array[0] + "px";
+    txt2.style.left = text2Array[1] + "px";
+    txt2.style.textAlign = text2Array[2];
+    txt2.style.fontSize = text2Array[3];
+    txt2.style.lineHeight = text2Array[4];
+    txt2.style.color = text2Array[5];
+
+    txt3.style.top = text3Array[0] + "px";
+    txt3.style.left = text3Array[1] + "px";
+    txt3.style.textAlign = text3Array[2];
+    txt3.style.fontSize = text3Array[3];
+    txt3.style.lineHeight = text3Array[4];
+    txt3.style.color = text3Array[5];
+
+    legal.style.top = tcsArray[0] + "px";
+    legal.style.left = tcsArray[1] + "px";
+    legal.style.textAlign = tcsArray[2];
+    legal.style.fontSize = tcsArray[3];
+    legal.style.lineHeight = tcsArray[4];
+    legal.style.color = tcsArray[5];
+
+    cta.style.top = ctaArray[0] + "px";
+    cta.style.left = ctaArray[1] + "px";
+    cta.style.textAlign = ctaArray[2];
+    cta.style.fontSize = ctaArray[3];
+    cta.style.lineHeight = ctaArray[4];
+    cta.style.color = ctaArray[5];
+    cta.style.padding = ctaArray[6];
+    cta.style.margin = ctaArray[7];
+    cta.style.background = ctaArray[8];
+    cta.style.borderRadius = ctaArray[9];
+
+
+
+/*
+
+var days = ["1ST","2ND","3RD","4TH","5TH","6TH","7TH","8TH","9TH","10TH", "11TH","12TH","13TH","14TH","15TH","16TH","17TH","18TH","19TH","20TH", "21ST","22ND","23RD","24TH","25TH","26TH","27TH","28TH","29TH","30TH", "31ST"];
+
+var months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT", "NOV","DEC"];
+
+document.getElementById("Ribbon_Date").innerHTML = days[RibbonDate.getDay()] + " " + months[RibbonDate.getMonth()];
+
+  */
+
+    setPositions();
+    addListeners();
+    CountdownDate();
+}
+
+function CountdownDate()
+{
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now an the count down date
+  var distance = Countdown_Date_UtcValue - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+days = days < 10 ? "0" + days : days;
+hours = hours < 10 ? "0" + hours : hours;
+minutes = minutes < 10 ? "0" + minutes : minutes;
+seconds = seconds < 10 ? "0" + seconds : seconds;
+
+
+
+ if (Countdown_Type == "Day" && days > 2){
+    document.getElementById("Countdown_Text").innerHTML = days + " days";
+ }
+ if (Countdown_Type == "Day" && days == 2){
+    document.getElementById("Countdown_Text").innerHTML = " tomorrow";
+ }
+if (Countdown_Type == "Day" && days == 1){
+    document.getElementById("Countdown_Text").innerHTML = " tonight";
+ }
+
+
+ if (Countdown_Type == "Hours"){
+    document.getElementById("Countdown_Text").innerHTML = hours + "h";
+ }
+
+ if (Countdown_Type == "Day + Hours"){
+    document.getElementById("Countdown_Text").innerHTML = days + " days " + hours + "h ";
+ }
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    //clearInterval(x);
+    document.getElementById("Countdown_Text").innerHTML = "";
+  }
+
+
+    replaceText();
+
+}
+
+
+function replaceText()
+{
+
+
+
+
+daysDivs = window.document.getElementsByTagName("days");
+for (var i = 0; i < daysDivs.length; i++){
+   //do something to each div like
+daysDivs[i].innerHTML = window.days;
+if (days == 2){daysDivs[i].innerHTML = "tomorrow";};
+if (days == 1){daysDivs[i].innerHTML = "tonight";};
+}
+
+
+hoursDivs = window.document.getElementsByTagName("hours");
+for (var i = 0; i < hoursDivs.length; i++){
+   //do something to each div like
+hoursDivs[i].innerHTML = window.hours;
+
+}
+
+minutesDivs = window.document.getElementsByTagName("minutes");
+for (var i = 0; i < minutesDivs.length; i++){
+   //do something to each div like
+minutesDivs[i].innerHTML = window.minutes;
+
+}
+
+secondsDivs = window.document.getElementsByTagName("seconds");
+for (var i = 0; i < secondsDivs.length; i++){
+   //do something to each div like
+secondsDivs[i].innerHTML = window.seconds;
+
+}
+
+
+}
+
+
+function setPositions()
+{
+
+
+    var x = setInterval(function() {
+    CountdownDate();
+    }, 1000);
+
+    yPos = 0;
+
+    if(Extra_Image_Appear=="Frame1")TweenMax.set(ExtraImage, {opacity:1});
+    if(CTA_Appear=="Frame1")TweenMax.set(cta, {opacity:1});
+    if(Countdown_Appear=="Frame1")TweenMax.set(Countdown_Text, {opacity:1});
+
+    if(Offer1_Data && Offer1_Data != ""){
+    TweenMax.set(of1, {y:yPos+=offer1YPos, autoAlpha:1});
+    }
+    if(Offer2_Data && Offer2_Data != "")
+    {
+        TweenMax.set(of2, {y:yPos+=offer2YPos, autoAlpha:1});
+    } else {
+        yPos += 10;
+    }
+    TweenMax.set(handset, {autoAlpha:1});  TweenMax.set(handsetLogo, {autoAlpha:1});
+    TweenMax.set(txt1, {autoAlpha:1});
+
+    if(Text_02 != "")
+    {
+        setFrameTwo();
+    }
+
+  if(Voucher_Amount!="")
+        {
+          TweenMax.set(reward, {autoAlpha:1});
+        }
+    /*if(rewardCardText!="")
+    {
+        if(offer2 == "") yPos += 10;
+        TweenMax.set(reward, {y:yPos+=rewardCardYPos, autoAlpha:1});
+    } else {
+        yPos += (rewardCardYPos - handsetYPos) + 30;
+    }*/
+    if(Offer2_Data == "") yPos += 10;
+    TweenMax.set(legal, {autoAlpha:.9});
+
+    // SET LENS FLARE POSITION
+    TweenMax.set('#lens-flare',{scale:1, x:-15, y:-108} );
+}
+
+
+
+
+
+
+// add frame 2 if required
+function setFrameTwo()
+{
+
+if(Extra_Image_Appear=="Frame2")TweenMax.to(ExtraImage, frame2Speed, {opacity:1, delay:frame2Delay});
+if(Extra_Image_Disappear=="Frame2")TweenMax.to(ExtraImage, frame2Speed, {opacity:0, delay:frame2Delay});
+
+if(Countdown_Appear=="Frame2")TweenMax.to(Countdown_Text, frame2Speed, {opacity:1, delay:frame2Delay});
+if(Countdown_Disappear=="Frame2")TweenMax.to(Countdown_Text, frame2Speed, {opacity:0, delay:frame2Delay});
+
+if(CTA_Appear=="Frame2")TweenMax.to(cta, frame2Speed, {opacity:1, delay:frame2Delay});
+if(CTA_Disappear=="Frame2")TweenMax.to(cta, frame2Speed, {opacity:0, delay:frame2Delay});
+
+tc1 = document.getElementById("TC1");
+tc2 = document.getElementById("TC2");
+tc3 = document.getElementById("TC3");
+
+tc2.style.opacity = 0;
+tc3.style.opacity = 0;
+
+     TweenMax.to(txt1, frame2Speed, {autoAlpha:0, delay:frame2Delay});
+     TweenMax.to(txt2, frame2Speed, {autoAlpha:1, delay:frame2Delay + frame2Speed, onComplete: function() {
+
+
+if(Text_03 != "")
+    {
+        setFrameThree();
+    }
+
+     }
+                                    });
+    if (tc2){
+     TweenMax.to([tc1, tc3], frame2Speed, {opacity:0, display:"none", delay:frame2Delay});
+     TweenMax.to(tc2, frame2Speed, {display:"block", opacity:1, delay:frame2Delay + frame2Speed});
+}
+}
+
+function setFrameThree() {
+
+
+if(Extra_Image_Appear=="Frame3")TweenMax.to(ExtraImage, frame3Speed, {opacity:1, delay:frame3Delay});
+if(Extra_Image_Disappear=="Frame3")TweenMax.to(ExtraImage, frame3Speed, {opacity:0, delay:frame3Delay});
+
+if(Countdown_Appear=="Frame3")TweenMax.to(Countdown_Text, frame3Speed, {opacity:1, delay:frame3Delay});
+if(Countdown_Disappear=="Frame3")TweenMax.to(Countdown_Text, frame3Speed, {opacity:0, delay:frame3Delay});
+
+
+if(CTA_Appear=="Frame3")TweenMax.to(cta, frame3Speed, {opacity:1, delay:frame3Delay});
+if(CTA_Disappear=="Frame3")TweenMax.to(cta, frame3Speed, {opacity:0, delay:frame3Delay});
+
+tc1 = document.getElementById("TC1");
+tc2 = document.getElementById("TC2");
+tc3 = document.getElementById("TC3");
+
+tc3.style.opacity = 0;
+
+     TweenMax.to(txt2, frame3Speed, {autoAlpha:0, delay:frame3Delay});
+     TweenMax.to(txt3, frame3Speed, {autoAlpha:1, delay:frame3Delay + frame3Speed});
+
+    if (tc3){
+     TweenMax.to([tc1, tc2], frame3Speed, {opacity:0, display:"none", delay:frame3Delay});
+     TweenMax.to(tc3, frame3Speed, {display:"block", opacity:1, delay:frame3Delay + frame3Speed});
+}
+
+}
+
+//Add Event Listeners
+addListeners = function(e) {
+	wrapper.addEventListener('touchEnd', exitClickHandler, false);
+	wrapper.addEventListener('click', exitClickHandler, false);
+}
+
+
+function exitClickHandler() {
+var dcmSuffix = addSuffix(Dynamic_Exit, 'exit_suffix')
+Enabler.exitOverride('BackgroundExit', dcmSuffix);
+
+}
+document.getElementById("wrapper").addEventListener('click', exitClickHandler, false);
+
+// append exit_suffix to exit url
+function addSuffix(url, dcmParameter) {
+  var urlSuffix = Enabler.getParameter(dcmParameter);
+  var _url = '';
+
+  if (url) {
+    var symbol = (url.indexOf('?') > -1) ? '&': '?';
+    if(urlSuffix) {
+      while (urlSuffix.charAt(0) == '?' || urlSuffix.charAt(0) == '&') {
+        urlSuffix = urlSuffix.substring(1);
+      }
+      if (urlSuffix.indexOf('?') > -1) {
+        urlSuffix = urlSuffix.replace(/\?/g, '&');
+      }
+    }
+    _url = url + symbol + urlSuffix;
+  }
+  return _url;
+}
+
+
+
+
+
+//////////////////////////////////////////////
+/*                 END FRAME                */
+//////////////////////////////////////////////
+
+function endFrame(){
+    setPositions();
+    TweenMax.killAll();
+    if(Text_03 != "")
+    {
+        TweenMax.set([txt1, txt2], {alpha:0 });
+        TweenMax.set(txt3, {alpha:1 });
+    }
+}
+
+
+
+//////////////////////////////////////////////
+/*         LENS FLARE ANIMATION             */
+//////////////////////////////////////////////
+
+function setFlare()
+{
+
+  var noRepeats = parseFloat(window.flareLoops);
+  var repeatDel = parseFloat(window.flareInterlude);
+  console.log('//////// SET FLARE //////// NO OF LOOPS : ' + noRepeats + "/// Repeat delay = " + window.flareInterlude);
+  var squence = document.getElementById("imgSquence");
+  var sqTL = new TimelineMax({repeat:noRepeats, repeatDelay:repeatDel});
+  sqTL.to(squence, 2, {backgroundPosition: "-4800px -1px",ease: SteppedEase.config(30), onStart:onSqareStart, onComplete:onSqareEnd});
+  //TL.set(squence, {backgroundPosition: "-9000px -1px"});
+
+
+  function onSqareStart () {
+  console.log('///// SQUARES START');
+  }
+
+  function onSqareEnd() {
+  console.log('///// SQUARES END');
+  }
+
+  return;
+
+
+
+    // INIT FLARE STATES
+    TweenMax.set("#FLARE_ASSETS_0000_Ellipse-1",        {scale:1, alpha:0, x:180, y:296, transformOrigin:"50% 50%"});
+    TweenMax.set("#FLARE_ASSETS_0001_Ellipse-2",        {scale:1, alpha:0, x:200, y:280, transformOrigin:"50% 50%"});
+    TweenMax.set("#FLARE_ASSETS_0002_Ellipse-3-copy",   {scale:1, alpha:0, x:216, y:211, transformOrigin:"50% 50%"});
+    TweenMax.set("#FLARE_ASSETS_0003_Ellipse-3",        {scale:1, alpha:0, x:220, y:273, transformOrigin:"50% 50%"});
+    TweenMax.set("#FLARE_ASSETS_0004_Ellipse-4",        {scale:1, alpha:0, x:207, y:270, transformOrigin:"50% 50%"});
+    TweenMax.set("#FLARE_ASSETS_0005_Ellipse-5",        {scale:1, alpha:0, x:216, y:221, transformOrigin:"50% 50%"});
+    TweenMax.set("#FLARE_ASSETS_0006_Ellipse-5-copy",   {scale:1, alpha:0, x:223, y:250, transformOrigin:"50% 50%"});
+    TweenMax.set("#FLARE_ASSETS_0007_Ellipse-5-copy-2", {scale:1, alpha:0, x:224, y:233, transformOrigin:"50% 50%"});
+    TweenMax.set("#FLARE_ASSETS_0008_Ellipse-8",        {scale:1, alpha:0, x:175, y:146, transformOrigin:"50% 50%"});
+    TweenMax.set("#FLARE_ASSETS_0009_Ellipse-9",        {scale:1, alpha:0, x:220, y:186, transformOrigin:"50% 50%"});
+    TweenMax.set("#FLARE_ASSETS_0010_Star",             {scale:1, alpha:0, x:150, y:116, transformOrigin:"50% 50%"});
+    TweenMax.set("#FLARE_ASSETS_0011_Ellipse-6",        {scale:0, alpha:0, x:206, y:176, transformOrigin:"50% 50%"});
+
+    TweenMax.set("#lens-flare", {autoAlpha:1});
+
+    // ANIM POSITIONS
+    TweenMax.to("#FLARE_ASSETS_0000_Ellipse-1",1,       {x:120, y:296, ease:Quad.EaseInOut, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0001_Ellipse-2",1,       {x:170, y:280, ease:Quad.EaseInOut, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0002_Ellipse-3-copy",1,  {x:260, y:211, ease:Quad.EaseInOut, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0003_Ellipse-3",1,       {x:200, y:273, ease:Quad.EaseInOut, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0004_Ellipse-4",1,       {x:185, y:270, ease:Quad.EaseInOut, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0005_Ellipse-5",1,       {x:242, y:221, ease:Quad.EaseInOut, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0006_Ellipse-5-copy",1,  {x:223, y:250, ease:Quad.EaseInOut, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0007_Ellipse-5-copy-2",1,{x:244, y:233, ease:Quad.EaseInOut, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0008_Ellipse-8",1,       {x:224, y:146, ease:Quad.EaseInOut, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0009_Ellipse-9",1,       {x:270, y:186, ease:Quad.EaseInOut, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0010_Star",1,            {x:199, y:116, ease:Quad.EaseInOut, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0011_Ellipse-6",1,       {x:256, y:176, ease:Quad.EaseInOut, transformOrigin:"50% 50%"});
+
+    // ANIM SCALE / ALPHA
+    TweenMax.to("#FLARE_ASSETS_0000_Ellipse-1",.3,       {alpha:.30, delay:.1});
+    TweenMax.to("#FLARE_ASSETS_0001_Ellipse-2",.3,       {alpha:.30, delay:.1});
+    TweenMax.to("#FLARE_ASSETS_0002_Ellipse-3-copy",.3,  {alpha:.30, delay:.1});
+    TweenMax.to("#FLARE_ASSETS_0003_Ellipse-3",.3,       {alpha:.30, delay:.1});
+    TweenMax.to("#FLARE_ASSETS_0004_Ellipse-4",.3,       {alpha:.30, delay:.1});
+    TweenMax.to("#FLARE_ASSETS_0005_Ellipse-5",.3,       {alpha:.30, delay:.1});
+    TweenMax.to("#FLARE_ASSETS_0006_Ellipse-5-copy",.3,  {alpha:.30, delay:.1});
+    TweenMax.to("#FLARE_ASSETS_0007_Ellipse-5-copy-2",.3,{alpha:.30, delay:.1});
+    TweenMax.to("#FLARE_ASSETS_0008_Ellipse-8",.3,       {alpha:.75, scale:3, delay:.1, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0009_Ellipse-9",.3,       {alpha:.70, scale:.75, delay:.1, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0010_Star",.3,            {alpha:.60, delay:.1});
+    TweenMax.to("#FLARE_ASSETS_0011_Ellipse-6",.3,       {alpha:.50, scale:.5, delay:.1, transformOrigin:"50% 50%"});
+
+    TweenMax.to("#FLARE_ASSETS_0000_Ellipse-1",.5,       {alpha:0, delay:.4});
+    TweenMax.to("#FLARE_ASSETS_0001_Ellipse-2",.5,       {alpha:0, delay:.4});
+    TweenMax.to("#FLARE_ASSETS_0002_Ellipse-3-copy",.5,  {alpha:0, delay:.4});
+    TweenMax.to("#FLARE_ASSETS_0003_Ellipse-3",.5,       {alpha:0, delay:.4});
+    TweenMax.to("#FLARE_ASSETS_0004_Ellipse-4",.5,       {alpha:0, delay:.4});
+    TweenMax.to("#FLARE_ASSETS_0005_Ellipse-5",.5,       {alpha:0, delay:.4});
+    TweenMax.to("#FLARE_ASSETS_0006_Ellipse-5-copy",.5,  {alpha:0, delay:.4});
+    TweenMax.to("#FLARE_ASSETS_0007_Ellipse-5-copy-2",.5,{alpha:0, delay:.4});
+    TweenMax.to("#FLARE_ASSETS_0008_Ellipse-8",.5,       {alpha:0, delay:.4});
+    TweenMax.to("#FLARE_ASSETS_0009_Ellipse-9",.5,       {alpha:0, scale:.5, delay:.4, transformOrigin:"50% 50%"});
+    TweenMax.to("#FLARE_ASSETS_0010_Star",.5,            {alpha:0, delay:.4});
+    TweenMax.to("#FLARE_ASSETS_0011_Ellipse-6",.5,       {alpha:0, delay:.4});
+
+    if(flareLoop < flareLoops && LOOPING)
+    {
+        flareLoop++;
+
+        TweenMax.delayedCall(flareInterlude, setFlare);
+    }
+
+}

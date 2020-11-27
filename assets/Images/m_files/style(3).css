@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: BT_Bold;
+    src: url(../font/btfont-bold.woff);
+}
+
+@font-face {
+    font-family: BT_ExBold;
+    src: url(../font/btfont-extrabold.woff);
+}
+
+@font-face {
+    font-family: BT_Light;
+    src: url(../font/btfont-light.woff);
+}
+
+@font-face {
+    font-family: BT_Regular;
+    src: url(../font/btfont-regular.woff);
+}
+
+.Bold {
+    font-family: BT_Bold;
+    z-index: 20;
+}
+
+.ExBold {
+    font-family: BT_ExBold;
+    z-index: 21;
+}
+
+.Light {
+    font-family: BT_Light;
+    z-index: 22;
+}
+
+.Regular {
+    font-family: BT_Regular;
+    z-index: 23;
+}
+
+body {
+    margin: 0px;
+}
+
+
+#main_container {
+    margin: auto;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+#main_content {
+    /*background: #6400aa;*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+.fullsize {
+    position: absolute;
+    width: 728px;
+    height: 90px;
+    top: 0px;
+    /*	left: 0px;*/
+    background-size: 728px 90px;
+    overflow: hidden;
+}
+
+#background_exit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 400;
+}
+
+
+.logo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 728px;
+    height: 90px;
+    background-size: 728px 90px;
+    background-repeat: no-repeat;
+}
+
+#background_image {
+    position: absolute;
+    top: -120px;
+    left: 0;
+}
+
+.copy_frame {
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+}
+
+.frame_copy {
+    position: relative;
+}
+
+.frame_bg_panel,
+#transition_container {
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    overflow: hidden;
+}
+
+.transition_panel {
+    position: absolute;
+    height: 100%;
+    bottom: 0;
+}
+
+#frame_4_copy_1 {
+    display: inline-block;
+    top: -22%;
+    transform: translateY(50%);
+}
+
+#frame_4_breakline {
+    position: relative;
+    display: inline-block;
+    height: 57px;
+    top: 10px;
+    width: 1px;
+    background-color: #fff;
+}
+
+
+#frame_4_copy_2 {
+    margin-bottom: 2px;
+}
+
+
+#frame_4_copy_3 {}
+
+#frame_4_copy_2_3_container {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#cta {
+    position: absolute;
+    text-align: center;
+    width: auto;
+    height: auto;
+    right: 10px;
+    width: 70px;
+}
+
+#TCs {
+    position: absolute;
+}
+
+#extra_image {
+
+}

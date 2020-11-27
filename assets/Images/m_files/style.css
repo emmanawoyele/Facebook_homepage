@@ -1,0 +1,248 @@
+@font-face {
+    font-family: 'Dual600';
+    src: url('font/Dual-600.woff');
+    font-weight: normal;
+}
+#fontLoader {
+    position: absolute;
+    font-family: 'Dual600';
+    visibility: hidden;
+}
+
+b {
+    font-family: 'Dual600';
+    font-weight: normal;
+}
+
+p {
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Dual600';
+    color: #000;
+}
+
+#container {
+    width: 300px;
+    height:600px;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+#keyline {
+    position: absolute;
+    top: 0px;
+    width: 298px;
+    height: 598px;
+    border: 1px solid #000;
+    opacity: 0.5;
+    /*	pointer-events:none;*/
+    z-index: 99;
+}
+
+.hiddenAtStart {
+    visibility: hidden;
+}
+
+.frame,
+.frame_image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#frame1,
+#frame3,
+#frame4,#frameD{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+/*    background-color: #fff;*/
+    line-height: 0.9;
+    overflow: hidden;
+}
+/*#frame2{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    line-height: 0.9;
+    overflow: hidden;
+    
+}*/
+
+#text1, #text2, #text3, #textD {
+    position: relative;
+    font-family: 'Dual600';
+    font-size: 35px;
+    line-height: 1.1;
+}
+
+
+
+.hr {
+    background: #0099d5;
+    height: 15px;
+    width: 100%;
+    z-index: 99;
+    position: absolute;
+    left: 270px;
+}
+
+.hr-top {
+    background: #0099d5;
+    height: 15px;
+    width: 100%;
+    z-index: 99;
+    /*    position: absolute;*/
+    /*    left: 270px;*/
+    top: -20px;
+}
+
+.hr-bottom {
+    background: #0099d5;
+    height: 15px;
+    width: 100%;
+    z-index: 99;
+    position: absolute;
+    left: 270px;
+    bottom: 90px;
+}
+
+#sub-title {
+     position: absolute;
+    font-size: 16px;
+    color: #0099d5;
+    padding-top: 10px;
+    padding-left: 5px;}
+
+#textHolder1, #textHolder2, #textHolder3, #textHolderD {
+    position: absolute;
+    top:22%;
+    left:10%;
+    width: 100%;
+    z-index: 6;
+}
+#textHolder2{
+    left: 12%;
+}
+#btn-wr {
+    width: 50%;
+    /*    float: right;*/
+    position: absolute;
+    right: 0;
+    top: 30%;
+}
+#logoWr{
+   height: 100px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;}
+
+#logo {
+    background: url(assets/logo-02.png);
+  background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 50%;
+    height: 80px;
+    z-index: 99;
+}
+
+/*#textHolder4 {
+    width: 35%;
+   padding:  60px 40px 60px 55px;
+    float: left;
+}*/
+
+
+#text4 {
+    font-size: 62px;
+    color: #0099d5;
+    line-height: 1;
+}
+#red-line {
+    background: url(assets/red-line-04.png);
+    background-position: 125% 75%;
+    background-repeat: no-repeat;
+    height: 100%;
+    position: absolute;
+    width: 250px;
+    z-index: 7;
+    background-size: 88%;
+}
+#grey-line { 
+    background: url(assets/grey-line.png);
+background-position: 50% 59.5%;
+    background-repeat: no-repeat;
+    height: 100%;
+    position: absolute;
+    width: 160px;
+    z-index: 6;
+    background-size: 88%;
+}
+
+#wh-cover {
+    background: url(assets/wh-box.png);
+        background-size: cover;
+    /* background-position: initial; */
+    background-repeat: no-repeat;
+   height: 73.5%;
+    /* position: absolute; */
+    width: 23%;
+    z-index: 7;
+/*    border: 1px solid red;*/
+    float: right;
+/*    background: yellow;*/
+    position: absolute;
+    right: -13px;
+    bottom: 0;
+}
+#busFrame{
+    background: url(assets/bus.png);
+    background-repeat: no-repeat;
+    height: 120px;
+    width: 290px;
+    background-size: contain;
+    position: absolute;
+    z-index: 6;
+/*    bottom: 27.3%;*/
+    top: 40%;
+    
+}
+#coverUp{
+    background: #fff;
+    position: absolute;
+    width: 160px;
+    height: 600px;
+    z-index: 9;
+    top: 28px;
+}
+#textHolder0{
+    text-align: left;
+/*    position: absolute;*/
+}
+#cta_button {
+    font-family:'Dual600';
+    font-size: 15px;
+    color: #fff;
+    width: 100px;
+    background: #385dae;
+    padding: 7px 15px;
+    text-align: center;
+    line-height: 1.8;
+    cursor: pointer;
+    z-index: 999;
+}
+#cta_button:hover{
+   opacity: 0.8;
+}
+

@@ -1,0 +1,14 @@
+FT.manifest({
+	"filename":"index.html",
+	"width":300,
+	"height":250,
+	"clickTagCount":2,
+	"hideBrowsers":["ie9"],
+	"instantAds":[
+        {"name":"text1",  "type":"text",  "default":"London<br> is still calling"},
+        {"name":"text2",  "type":"text",  "default":"Stop looking<br> and finish booking"},
+         {"name":"text3",  "type":"text",  "default":"Don't miss out"},
+        {"name":"cta_button", "type":"text", "default":"BOOK NOW"},		
+		{"name":"clickthrough_url", "type":"text", "default":"#"}
+	]
+});

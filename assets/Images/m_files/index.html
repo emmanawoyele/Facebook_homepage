@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://cdn.flashtalking.com/81110/2014083/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <style></style><link type="text/css" rel="stylesheet" href="./reset.min.css">
+    <link type="text/css" rel="stylesheet" href="./style.css"> 
+    </head>
+<!--content-->
+
+<body>
+    <div id="container">
+        <div id="fontLoader">Font <b>Loader</b></div>
+        <!-- <div id="frame0">
+            <div name="coverUp" id="coverUp"></div>
+        </div> 
+        <div id="frameH" class="hiddenAtStart">
+            
+            <div id="wh-cover"></div>
+        </div>-->
+         <div id="textHolder0">
+              <ft-dynamic id="cta_button" name="cta_button" style="cursor: pointer;">BOOK NOW</ft-dynamic>
+            </div>
+            <div id="logoWr">
+                <div id="logo"></div>
+            </div>
+        <!-- <div name="greyLine" id="grey-line"></div>     -->
+        <div name="redLine" id="red-line"></div>
+        <div id="frame1" class="hiddenAtStart" style="visibility: visible;">
+            <div id="textHolder1">
+                <ft-dynamic id="text1" name="text1" style="font-size: 35px; left: 100%;">London<br> is still calling</ft-dynamic>
+            </div>
+        </div>
+        <div id="frame2" class="hiddenAtStart" style="visibility: visible;">
+           <div name="busFrame" id="busFrame" style="left: 110%;"></div>
+        </div>
+        <div id="frame3" class="hiddenAtStart" style="visibility: visible;">
+           <div id="textHolder2">
+                <ft-dynamic id="text2" name="text2" style="font-size: 35px; left: 0px;">Stop looking<br> and finish<br> booking</ft-dynamic>
+            </div>
+        </div>
+        <div id="frame4" class="hiddenAtStart" style="visibility: visible;">
+            <div id="textHolder3">
+                <ft-dynamic id="text3" name="text3" style="left: 10%; visibility: hidden; opacity: 0; color: rgb(249, 13, 13); transform: matrix(1.2, 0, 0, 1.2, 0, 0);">Don't<br>miss out</ft-dynamic>
+            </div>
+         </div>
+        </div>
+        
+        <div id="keyline" style="cursor: pointer;"></div>
+    
+    <!--scripts-->
+    <script src="./CSSPlugin.min.js.download"></script>
+    <script src="./EasePack.min.js.download"></script>
+    <script src="./TweenMax.min.js.download"></script>
+    <script src="./html5API.js.download"></script>
+    <script src="./shrinkr2.js.download"></script>
+    <script src="./manifest.js.download"></script>
+    <script type="text/javascript">
+        var wrapper = myFT.$("#wrapper")[0], 
+            keyline = myFT.$("#keyline")[0],
+            text1 = myFT.$("#text1")[0],
+            text2 = myFT.$("#text2")[0],
+            text3 = myFT.$("#text3")[0],
+            frameH = myFT.$("#frameH")[0],
+             frame0 = myFT.$("#frame0")[0],
+           frame1 = myFT.$("#frame1")[0],
+            frame2 = myFT.$("#frame2")[0],
+            frame3 = myFT.$("#frame3")[0],
+            frame4 = myFT.$("#frame4")[0],
+            coverUp = myFT.$("coverUp")[0],
+            redLine = myFT.$("red-line")[0],
+//             greyLine = myFT.$("grey-line")[0],
+            busFrame = myFT.$("busFrame")[0];
+        var tl = new TimelineMax (),
+			loop=0,
+			maxLoops = 2;
+        
+         shrinkr(text1);
+        shrinkr(text2);
+        // click tag button
+        myFT.applyButton(keyline, function () {
+            myFT.clickTag(1, myFT.instantAds.click_url);
+        });
+        myFT.applyButton("#cta_button", function () {
+            myFT.clickTag(2, myFT.instantAds.click_url);
+        });
+        myFT.on("instantads", function () {
+            // short pause for fonts to load
+            setTimeout(function () {
+                startAd();
+            }, 500); // wait 500
+            
+          
+        });
+
+        function startAd() {
+            // frame0.style.visibility = "visible";
+			//frameH.style.visibility = "visible";
+            frame1.style.visibility = "visible";
+            frame2.style.visibility = "visible";
+            frame3.style.visibility = "visible";
+            frame4.style.visibility = "visible";
+          
+                animate1();
+        }
+
+        function animate1() {
+			loop++;
+			TweenLite.set("#textD",{left:"-100%"});
+          	tl.to("#frameH", 1, {autoAlpha:1});
+			tl.fromTo("#text1", 1, {left: "-110%"}, {left:0, ease: Back.easeOut.config(1.7)})	
+			 tl.to("#text1", 0.95, {left: "100%", ease: Back.easeOut.config(1.7)}, "+=1");
+			tl.fromTo("#busFrame", 2, {left:"-180%"},{left:"110%",  ease: Power0.easeNone}, "-=1");
+			tl.fromTo("#text2", 1, {left: "-110%"} , {left:0,  ease: Back.easeOut.config(1.7)});
+			 tl.to("#text2", 0.9,  {left: "100%", ease: Power4.easeOut}, "+=1");
+			tl.fromTo("#text3", 1, {autoAlpha:0,left: "-120%"} , {autoAlpha:1, left: "10%", ease: Back.easeOut.config(1.7)}, "-=1");
+			tl.fromTo("#text3", 1.5, { scale:1, color:"#000000"},{scale:1.2, color:"#f90d0d"}, "-=1");
+			tl.to("#text3", 0.59, {autoAlpha:0, onComplete:lastFrame});
+        
+        }
+
+
+		 function lastFrame() {
+			  if (loop != maxLoops){
+				 animate1();
+			 }else{
+				 //show end frame
+                tl.fromTo("#text1", 1, {left:"-110%"},{left:0, ease: Back.easeOut.config(1.7)});
+                tl.to("#text1", 0.95,  {left: "100%", ease: Back.easeOut.config(1.7), delay:0.8});
+                tl.fromTo("#text2", 1,{left: "-110%"}, {left:0,  ease: Back.easeOut.config(1.7)});
+			 }
+			   // TweenLite.to("#textD",0.59,{left:"2%",ease:Back.easeOut.config(1.7)});
+
+		}
+   
+    </script>
+
+
+</body></html>

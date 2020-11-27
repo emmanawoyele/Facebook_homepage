@@ -1,0 +1,338 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+
+
+
+body{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size:12px;
+    lnline-height:1.34;
+   
+}
+  
+  
+
+
+header{
+    background: #415e9b;
+    height:82px;
+   border-bottom: 1px solid #133783;
+}
+
+.header-block{
+    
+    width:992px;
+    margin: 0 auto;
+    padding-top:20px;
+
+
+}
+
+.facebook-logo{
+    width:40%;
+    float:left;
+  
+   
+   
+}
+.facebook-logo a{
+
+
+font-size:45px;
+color:#fff;
+font-weight:bold;
+}
+
+.facebook-login{
+    float:right;
+    width:50%;
+    padding-left:90px;
+ 
+}
+
+.header-block label{
+    color:#fff;
+}
+.email{
+    float:left;
+  
+}
+label{
+    font-weight:normal;
+}
+.password{
+    float:left;
+    margin-left:10px;
+
+}
+.password a{
+    color: #9cb4d8;
+    font-weight: normal;
+    text-decoration: none;
+}
+input{
+    height:22px;
+    display:inline-block;
+    border: 1px solid #ccd0d5;
+    padding:3px;
+    border-color: #29487d;
+}
+
+.button1{
+    float: left;
+    margin-top:22px;
+    margin-left:15px;
+    color:#fff;
+    display:inline-block;
+    font-size:12px;
+    font-weight:bold;
+    
+    
+ 
+   
+
+
+
+}
+.button1 button{
+    background-color: #29487d;
+    border-color: #29487d;
+    line-height:18px;
+    padding-left:4px;
+    padding-right:4px;
+    
+}
+
+.body-content
+{
+    background: linear-gradient(white, #D3D8E8);
+    padding-bottom: 30px;
+
+  
+}
+
+
+
+.facebook-top{
+
+   color: #0e385f;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 29px;
+    margin-top: 40px;
+    width: 450px;
+    word-spacing: -1px;
+}
+.create{
+    font-size:36px;
+    font-weight: 600;
+}
+
+
+
+.create-acct{
+    text-align:justify;
+padding-left:250px;
+
+
+}
+.free-always{
+    color: #1d2129;
+    font-size: 19px
+}
+.form-control{
+    height:40px;
+    
+    border-radius:6px; 
+    border: 1px solid #ccd0d5;
+}
+
+.connect{
+padding-left :200px;
+text-align: justify;
+}
+.first-name{
+    width: 200px;
+    font-size:18px;
+   
+}
+
+
+.last-name{
+    width: 200px;
+    font-size:18px;
+ 
+}
+
+.mob-num{
+    width:399px;
+    font-size:18px;
+}
+.birthday{
+    color: #90949c;
+    font-size: 16px;
+    font-weight: bold
+}
+select{
+    font-size: 13px;
+    height: 30px;
+    padding: 5px;
+}
+ 
+.question-mark{
+    color: #90949c;
+    width: 16px;
+    height: 21px;
+    background-position: -22px -43px;
+    display:inline-block;
+   
+
+}
+
+
+#first-name{
+    background: white;
+    border-radius: 5px;
+    width: 199.5px;
+    font-size: 18px;
+    padding: 8px 10px;
+    height:35px;
+    margin-bottom: 10px;
+    border-color: #bdc7d8;
+}
+   
+#surname{
+    background: white;
+    border-radius: 5px;
+    width: 199.5px;
+    font-size: 18px;
+    padding: 8px 10px;
+    height:35px;
+    border-color: #bdc7d8;
+}
+.nummob{
+    background: white;
+    border-radius: 5px;
+    width: 399px;
+    font-size: 18px;
+    padding: 8px 10px;
+    height:35px;
+    margin-bottom: 10px;
+    border-color: #bdc7d8;
+}
+
+
+
+.gendertext{
+
+    color: #1d2129;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 18px;
+    padding: 0 10px 0 3px;
+    border-color: #bdc7d8
+}
+.gendertext label{
+    margin-bottom:2px;
+    padding-bottom:4px;
+    
+}
+.Genbirth{
+    color: #90949c;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.policy{
+    margin-top:15px;
+    color: #777;
+    font-size: 11px;
+
+}
+
+button[type=submit]{
+    min-width:194px;
+    background: linear-gradient(#67ae55, #578843);
+    background-color: #69a74e;
+    border-color: #3b6e22 #3b6e22 #2c5115;
+    font-size:19px;
+    font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif !important;
+    font-weight: bold !important;
+    letter-spacing: normal;
+    text-shadow: 0 1px 2px rgba(0,0,0,.5);
+    line-height:126%;
+    margin-top:10px;
+
+}
+#band{
+padding-top:15px 0 15px;
+margin-top:10px 0 10px;
+border-top: 1px solid #dddfe2;
+  color: #666;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+ footer{
+    color: #737373;
+    margin: 0 auto;
+    width: 980px;
+}
+ 
+    
+.languages{
+    padding-top: 8px;
+    border-bottom:1px solid  #dddfe2;
+    padding-top:8px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  padding:10px 0 10px;
+    
+
+}
+.languages a{
+    padding:10px;
+    
+}
+.lang{
+    width:96%;
+    margin-top:10px;
+    line-height:1.6;
+    text-align: justify;
+    
+   
+ 
+
+}
+.lang li{
+
+    display:inline-block;
+
+
+}
+.lang a{
+
+    padding:10px ; 
+   
+}
+
+.test{
+
+   border-color:red;
+   border-style: solid;
+   width:173px;
+   outline-width: 1px;
+   outline-style: solid;
+   outline-color: red;
+   border-radius: 5px;
+   width: 199.5px;
+
+    
+    
+}
+
+}
